@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url)), // matches your tsconfig alias
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
   test: {
