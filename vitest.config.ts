@@ -1,0 +1,22 @@
+import { defineConfig } from "vitest/config";
+import vue from "@vitejs/plugin-vue";
+import { fileURLToPath, URL } from "node:url";
+
+export default defineConfig({
+  plugins: [vue()],
+  resolve: {
+    alias: {
+      "@": fileURLToPath(new URL("./src", import.meta.url)), // matches your tsconfig alias
+    },
+  },
+  test: {
+    environment: "jsdom",
+    globals: true,
+    include: ["tests/**/*.{test,spec}.{ts,js}"],
+    css: true,
+    coverage: {
+      reporter: ["text", "html"],
+      exclude: ["src/main.ts", "src/router/**"],
+    },
+  },
+});
